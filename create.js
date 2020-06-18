@@ -13,7 +13,7 @@ export const main = handler(async (event, context) => {
     // - 'noteId': a unique uuid
     // - 'content': parsed from request body
     // - 'attachment': parsed from request body
-    // - 'createdAt': current Unix timestamp
+    // - 'createdAt': current Unix timestamp added comment
     Item: {
       userId: event.requestContext.identity.cognitoIdentityId,
       noteId: uuid.v1(),
@@ -26,4 +26,5 @@ export const main = handler(async (event, context) => {
   await dynamoDb.put(params);
 
   return params.Item;
-});
+})
+;
